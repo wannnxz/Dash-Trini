@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>DASH TRINI · X-3 — 2025-2026</title>
+    <!-- Google Font & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body {
+            background: #0f1219;
+            font-family: 'Inter', sans-serif;
+            color: #e2e8f0;
+            padding: 16px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            max-width: 500px;
+            width: 100%;
+            background: #1a1f2c;
+            border-radius: 28px;
+            padding: 20px;
+            border: 1px solid #2d3445;
+        }
+        .header-section { margin-bottom: 20px; }
+        .dash-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(145deg, #a5d8ff, #7aa5c2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+        }
+        .dash-sub {
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            color: #8f9eb5;
+            margin-top: 4px;
+        }
+        .wali-card {
+            background: #222837;
+            border-radius: 20px;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+            border: 1px solid #3a4157;
+        }
+        .wali-avatar {
+            width: 60px;
+            height: 60px;
+            background: #2f4b6e;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+        }
+        .wali-info h2 {
+            font-size: 1.2rem;
+            margin: 4px 0 8px;
+            color: #e2e8f0;
+        }
+        .wali-meta {
+            display: flex;
+            gap: 12px;
+            font-size: 0.8rem;
+            color: #8f9eb5;
+        }
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        .stat-card {
+            background: #222837;
+            border-radius: 16px;
+            padding: 12px 4px;
+            text-align: center;
+            border: 1px solid #3a4157;
+        }
+        .stat-value {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #c5d9ff;
+            display: block;
+        }
+        .stat-label {
+            font-size: 0.7rem;
+            color: #8f9eb5;
+        }
+        .nav-links {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #2d3445;
+            padding-bottom: 12px;
+        }
+        .nav-btn {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 8px 0;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #8f9eb5;
+            cursor: pointer;
+            border-radius: 30px;
+        }
+        .nav-btn.active {
+            background: #2f4b6e;
+            color: white;
+        }
+        .page { display: none; }
+        .page.active { display: block; }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 20px 0 12px;
+        }
+        .section-header i {
+            font-size: 1.4rem;
+            color: #6d8bb0;
+        }
+        .section-header h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        .org-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+        .struktur-card {
+            background: #222837;
+            border-radius: 16px;
+            padding: 16px 4px 12px;
+            text-align: center;
+            border: 1px solid #3a4157;
+        }
+        .struktur-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 16px;
+            margin: 0 auto 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: white;
+        }
+        .struktur-role {
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: #8f9eb5;
+            margin-bottom: 4px;
+        }
+        .struktur-name {
+            font-weight: 600;
+            font-size: 0.8rem;
+            color: #e2e8f0;
+        }
+        .students-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+        .student-item {
+            background: #222837;
+            border-radius: 12px;
+            padding: 10px;
+            font-size: 0.8rem;
+            border: 1px solid #3a4157;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header-section">
+            <h1 class="dash-title">DASH TRINI</h1>
+            <div class="dash-sub">KELAS X-3 · 2025/2026</div>
+        </div>
+
+        <!-- WALI KELAS -->
+        <div class="wali-card">
+            <div class="wali-avatar">
+                <i class="fas fa-chalkboard-teacher"></i>
+            </div>
+            <div class="wali-info">
+                <span class="wali-label">WALI KELAS</span>
+                <h2>MILA TRI SUFIYANITA</h2>
+                <div class="wali-meta">
+                    <span><i class="far fa-calendar-alt"></i> 2025/2026</span>
+                    <span><i class="far fa-id-card"></i> X-3</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- STATISTIK -->
+        <div class="stats-row">
+            <div class="stat-card"><span class="stat-value">34</span><span class="stat-label">Siswa</span></div>
+            <div class="stat-card"><span class="stat-value">18</span><span class="stat-label">Laki</span></div>
+            <div class="stat-card"><span class="stat-value">16</span><span class="stat-label">Perempuan</span></div>
+            <div class="stat-card"><span class="stat-value">98%</span><span class="stat-label">Hadir</span></div>
+        </div>
+
+        <!-- NAVIGASI -->
+        <div class="nav-links">
+            <button class="nav-btn active" data-page="beranda">Beranda</button>
+            <button class="nav-btn" data-page="jadwal">Jadwal</button>
+            <button class="nav-btn" data-page="momen">Momen</button>
+            <button class="nav-btn" data-page="islami">Islami</button>
+        </div>
+
+        <!-- KONTEN -->
+        <div id="dynamic-content">
+            <!-- BERANDA -->
+            <div id="beranda-page" class="page active">
+                <div class="section-header"><i class="fas fa-crown"></i><h3>Struktur Kelas</h3></div>
+                <div class="org-grid">
+                    <div class="struktur-card"><div class="struktur-avatar" style="background:#3D5A73;"><i class="fas fa-user-tie"></i></div><div class="struktur-role">KETUA</div><div class="struktur-name">M.DZAKWAN</div></div>
+                    <div class="struktur-card"><div class="struktur-avatar" style="background:#5D6D7E;"><i class="fas fa-user-graduate"></i></div><div class="struktur-role">WAKIL</div><div class="struktur-name">IVAN ISNAN</div></div>
+                    <div class="struktur-card"><div class="struktur-avatar" style="background:#8D6E63;"><i class="fas fa-pen-fancy"></i></div><div class="struktur-role">SEK 1</div><div class="struktur-name">DESIY</div></div>
+                    <div class="struktur-card"><div class="struktur-avatar" style="background:#6A4E7C;"><i class="fas fa-pen"></i></div><div class="struktur-role">SEK 2</div><div class="struktur-name">LUTFI</div></div>
+                    <div class="struktur-card"><div class="struktur-avatar" style="background:#C44545;"><i class="fas fa-coins"></i></div><div class="struktur-role">BEN 1</div><div class="struktur-name">AVISTA</div></div>
+                    <div class="struktur-card"><div class="struktur-avatar" style="background:#2E7D5E;"><i class="fas fa-wallet"></i></div><div class="struktur-role">BEN 2</div><div class="struktur-name">NOVI</div></div>
+                </div>
+
+                <div class="section-header"><i class="fas fa-users"></i><h3>Anggota Kelas</h3></div>
+                <div class="students-grid">
+                    <div class="student-item">Ahmad Ibnu S.</div><div class="student-item">Ahmad Anca</div>
+                    <div class="student-item">Ajwad Najiyyur</div><div class="student-item">Alya Fitria</div>
+                    <div class="student-item">Andika Syach</div><div class="student-item">Anggara Riski</div>
+                    <div class="student-item">Arina Kurnia</div><div class="student-item">Avista Dwi</div>
+                    <div class="student-item">Byan Putra</div><div class="student-item">Desiy Nur</div>
+                    <div class="student-item">Dimas Aditya</div><div class="student-item">Dwi Citra</div>
+                    <div class="student-item">Erika Citra</div><div class="student-item">Febbri Aldi</div>
+                    <div class="student-item">Guntur Afif</div><div class="student-item">Heni Widya</div>
+                    <div class="student-item">Ivan Isnan</div><div class="student-item">Khaira Ayu</div>
+                    <div class="student-item">Lutfi Alfina</div><div class="student-item">M. Kharis</div>
+                    <div class="student-item">Mei Nazilatun</div><div class="student-item">M. Lucky</div>
+                    <div class="student-item">Moch. Aditya</div><div class="student-item">M. Dzakwan</div>
+                    <div class="student-item">M. Setyo</div><div class="student-item">Nabila Evania</div>
+                    <div class="student-item">Novi Adelia</div><div class="student-item">Qian Kholifatul</div>
+                    <div class="student-item">Reza Andhika</div><div class="student-item">Serly Andini</div>
+                    <div class="student-item">Sulvi Ramadani</div><div class="student-item">Tegar Gunawan</div>
+                    <div class="student-item">Vina Tri</div><div class="student-item">Yoggie Jaufino</div>
+                </div>
+            </div>
+                    <!-- JADWAL -->
+        <div id="jadwal-page" class="page">
+            <div class="section-header"><i class="fas fa-calendar-alt"></i><h3>Jadwal</h3></div>
+            <div style="background:#222837; border-radius:16px; padding:16px; margin-bottom:12px; border:1px solid #3a4157;">
+                <div style="display:flex; justify-content:space-between; margin-bottom:10px; border-bottom:1px solid #3a4157; padding-bottom:8px;">
+                    <span style="font-weight:700;">Senin</span><span style="color:#8f9eb5;">7 mapel</span>
+                </div>
+                <div style="display:flex; flex-wrap:wrap; gap:6px;">
+                    <span style="background:#1a1f2c; padding:6px 12px; border-radius:20px; font-size:0.8rem;">Upacara</span>
+                    <span style="background:#1a1f2c; padding:6px 12px; border-radius:20px; font-size:0.8rem;">Sosiologi</span>
+                    <span style="background:#1a1f2c; padding:6px 12px; border-radius:20px; font-size:0.8rem;">B. Indo</span>
+                    <span style="background:#1a1f2c; padding:6px 12px; border-radius:20px; font-size:0.8rem;">B. Inggris</span>
+                    <span style="background:#1a1f2c; padding:6px 12px; border-radius:20px; font-size:0.8rem;">Matematika</span>
+                    <span style="background:#1a1f2c; padding:6px 12px; border-radius:20px; font-size:0.8rem;">PAI</span>
+                    <span style="background:#1a1f2c; padding:6px 12px; border-radius:20px; font-size:0.8rem;">Kimia</span>
+                </div>
+            </div>
+            <div style="background:#222837; border-radius:16px; padding:16px; margin-bottom:12px; border:1px solid #3a4157;">
+                <div style="display:flex; justify-content:space-between; margin-bottom:10px; border-bottom:1px solid #3a4157; padding-bottom:8px;">
+                    <span style="font-weight:700;">Selasa</span><span style="color:#8f9eb5;">5 mapel</span>
+                </div>
+                <div style="display:flex; flex-wrap:wrap; gap:6px;">
+                    <span style="background:#1a1f2c; padding:6px 12px; border-radius:20px;">PJOK</span>
+                    <span style="background:#1a1f2c; padding:6px 12px; border-radius:20px;">B. Jawa</span>
+                    <span style="background:#1a1f2c; padding:6px 12px; border-radius:20px;">Geografi</span>
+                    <span style="background:#1a1f2c; padding:6px 12px; border-radius:20px;">Seni Budaya</span>
+                    <span style="background:#1a1f2c; padding:6px 12px; border-radius:20px;">Informatika</span>
+                </div>
+            </div>
+            <div style="background:#222837; border-radius:16px; padding:16px; margin-bottom:12px; border:1px solid #3a4157;">
+                <div style="display:flex; justify-content:space-between; margin-bottom:10px; border-bottom:1px solid #3a4157; padding-bottom:8px;">
+                    <span style="font-weight:700;">Rabu</span><span style="color:#8f9eb5;">5 mapel</span>
+                </div>
+                <div style="display:flex; flex-wrap:wrap; gap:6px;">
+                    <span style="background:#1a1f2c; padding:6px 12px; border-radius:20px;">Matematika</span>
+                    <span style="background:#1a1f2c; padding:6px 12px; border-radius:20px;">PPKN</span>
+                    <span style="background:#1a1f2c; padding:6px 12px; border-radius:20px;">Biologi</span>
+                    <span style="background:#1a1f2c; padding:6px 12px; border-radius:20px;">Sejarah</span>
+                    <span style="background:#1a1f2c; padding:6px 12px; border-radius:20px;">B. Inggris</span>
+                </div>
+            </div>
+        </div>
+
+ <!-- HALAMAN MOMEN -->
+<div id="momen-page" class="page">
+    <div class="section-header"><i class="fas fa-camera-retro"></i><h3>Momen Kelas</h3></div>
+    
+    <!-- Momen 1 -->
+    <div style="background:#222837; border-radius:16px; overflow:hidden; margin-bottom:16px; border:1px solid #3a4157;">
+        <img src="1.jpeg" style="width:100%; height:140px; object-fit:cover;" onerror="this.src='https://via.placeholder.com/400x200/2f4b6e/ffffff?text=HARI+GURU'">
+        <div style="padding:12px;">
+            <div style="font-weight:700;">📝 hari guru</div>
+            <div style="font-size:0.8rem; color:#8f9eb5; margin-top:4px;">foto bersama saat hari guru</div>
+        </div>
+    </div>
+    
+    <!-- Momen 2 -->
+    <div style="background:#222837; border-radius:16px; overflow:hidden; margin-bottom:16px; border:1px solid #3a4157;">
+        <img src="2.jpeg" style="width:100%; height:140px; object-fit:cover;" onerror="this.src='https://via.placeholder.com/400x200/5D6D7E/ffffff?text=PENTAS+SENI'">
+        <div style="padding:12px;">
+            <div style="font-weight:700;">🎭 Pentas Seni</div>
+            <div style="font-size:0.8rem; color:#8f9eb5; margin-top:4px;">pentas seni dies natalis</div>
+        </div>
+    </div>
+    
+    <!-- Momen 3 -->
+    <div style="background:#222837; border-radius:16px; overflow:hidden; margin-bottom:16px; border:1px solid #3a4157;">
+        <img src="3.jpeg" style="width:100%; height:140px; object-fit:cover;" onerror="this.src='https://via.placeholder.com/400x200/8D6E63/ffffff?text=PPL+IKIP'">
+        <div style="padding:12px;">
+            <div style="font-weight:700;">📸 PPL IKIP</div>
+            <div style="font-size:0.8rem; color:#8f9eb5; margin-top:4px;">foto bersama kakak mahasiswa</div>
+        </div>
+    </div>
+</div>
+        <!-- ISLAMI -->
+        <div id="islami-page" class="page">
+            <div style="background:linear-gradient(145deg,#1e3c5a,#0f2a3f); border-radius:20px; padding:16px; text-align:center; margin-bottom:16px; border:1px solid #3a6382;">
+                <div style="font-size:1.2rem; font-weight:700; color:#e2d5a0; margin-bottom:6px;" id="greetingText">🕌 Loading...</div>
+                <div style="font-size:0.8rem; color:#8f9eb5;" id="hijriDate">Memuat kalender...</div>
+            </div>
+
+            <div style="background:#222837; border-radius:20px; padding:16px; margin-bottom:16px; border:1px solid #3a6382;">
+                <div style="display:flex; align-items:center; gap:8px; margin-bottom:12px;">
+                    <i class="fas fa-mosque" style="color:#6d8bb0;"></i>
+                    <span style="font-weight:700;">Waktu Sholat</span>
+                </div>
+                <div id="prayerTimes">
+                    <div style="text-align:center; color:#8f9eb5; padding:10px;">Memuat...</div>
+                </div>
+            </div>
+
+            <div style="background:#222837; border-radius:20px; padding:16px; margin-bottom:16px; border:1px solid #3a6382; text-align:center;">
+                <i class="fas fa-book-quran" style="font-size:2rem; color:#e2d5a0; margin-bottom:8px;"></i>
+                <div style="font-weight:700; margin-bottom:6px;">Al-Qur'an Digital</div>
+                <div style="font-size:0.8rem; color:#8f9eb5; margin-bottom:12px;">30 Juz lengkap terjemahan</div>
+                <button id="openQuranBtn" style="background:#2f4b6e; color:white; border:none; padding:12px 20px; border-radius:40px; font-weight:600; width:100%;">📖 Baca Al-Qur'an</button>
+            </div>
+
+            <div style="background:#222837; border-radius:20px; padding:16px; margin-bottom:16px; border:1px solid #3a6382;">
+                <div style="text-align:center; margin-bottom:8px; color:#8f9eb5;">Ayat Hari Ini</div>
+                <div style="font-size:1.4rem; text-align:center; direction:rtl; margin:10px 0; color:#e2d5a0;" id="ayatArabPreview">بِسْمِ اللَّهِ</div>
+                <div style="font-size:0.9rem; text-align:center; margin-bottom:6px;" id="ayatArtiPreview">Loading...</div>
+                <div style="font-size:0.8rem; text-align:center; color:#8f9eb5;" id="ayatSumberPreview"></div>
+            </div>
+
+            <div style="background:#222837; border-radius:20px; padding:16px; margin-bottom:16px; border:1px solid #3a6382;">
+                <div style="font-weight:700; margin-bottom:10px;"><i class="fas fa-hadith"></i> Hadits Hari Ini</div>
+                <p id="hadithText" style="margin-bottom:8px;">Loading...</p>
+                <span id="hadithSource" style="font-size:0.8rem; color:#8f9eb5; display:block; text-align:right;"></span>
+            </div>
+
+            <div style="background:#222837; border-radius:20px; padding:16px; margin-bottom:16px; border:1px solid #3a6382;">
+                <div style="font-weight:700; margin-bottom:10px;">🤲 Doa Hari Ini</div>
+                <p id="doaText" style="margin-bottom:8px;">Loading...</p>
+                <span id="doaSource" style="font-size:0.8rem; color:#8f9eb5; display:block; text-align:right;"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- SOSIAL MEDIA -->
+    <div style="display:flex; gap:10px; margin:20px 0;">
+        <a href="#" style="flex:1; background:#222837; border-radius:40px; padding:12px; text-align:center; text-decoration:none; color:white; border:1px solid #3a4157;">
+            <i class="fab fa-instagram"></i> intagram
+        </a>
+        <a href="#" style="flex:1; background:#222837; border-radius:40px; padding:12px; text-align:center; text-decoration:none; color:white; border:1px solid #3a4157;">
+            <i class="fab fa-tiktok"></i> tiktok
+        </a>
+    </div>
+
+    <!-- QUOTE -->
+    <div style="background:#1e2433; border-radius:20px; padding:16px; border:1px solid #3a4157;">
+        <i class="fas fa-quote-left" style="color:#4a6382; margin-bottom:8px;"></i>
+        <p style="font-style:italic; margin-bottom:8px;">"Belajar bukan tentang menjadi yang terbaik, tapi menjadi lebih baik dari kemarin."</p>
+</div>
+</div>
+
+    <script>
+        // NAVIGASI
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+                document.getElementById(this.dataset.page + '-page').classList.add('active');
+            });
+        });
+
+        // DATABASE HADITS (30 hadits)
+        const hadits = [
+            { teks: "Sebaik-baik manusia adalah yang paling bermanfaat bagi manusia.", sumber: "HR. Ahmad" },
+            { teks: "Barangsiapa beriman kepada Allah dan hari akhir, hendaklah berkata baik atau diam.", sumber: "HR. Bukhari" },
+            { teks: "Senyummu di hadapan saudaramu adalah sedekah.", sumber: "HR. Tirmidzi" },
+            { teks: "Allah tidak melihat rupa dan harta, tetapi melihat hati dan amal.", sumber: "HR. Muslim" },
+            { teks: "Orang kuat bukan yang pandai bergulat, tapi yang mampu mengendalikan marah.", sumber: "HR. Bukhari" },
+            { teks: "Barangsiapa mencari ilmu, Allah mudahkan jalan ke surga.", sumber: "HR. Muslim" },
+            { teks: "Mukmin satu dengan lainnya seperti satu bangunan yang saling menguatkan.", sumber: "HR. Bukhari" },
+            { teks: "Kebersihan itu sebagian dari iman.", sumber: "HR. Muslim" },
+            { teks: "Barangsiapa puasa Ramadhan karena iman, diampuni dosanya.", sumber: "HR. Bukhari" },
+            { teks: "Puasa adalah perisai, maka jangan berkata kotor.", sumber: "HR. Bukhari" },
+            { teks: "Lailatul Qadar lebih baik dari seribu bulan.", sumber: "QS. Al-Qadr: 3" },
+            { teks: "Sesungguhnya bersama kesulitan ada kemudahan.", sumber: "QS. Al-Insyirah: 6" },
+            { teks: "Berdoalah kepada-Ku, niscaya akan Kuperkenankan.", sumber: "QS. Ghafir: 60" },
+            { teks: "Shalatlah kalian sebagaimana kalian melihat aku shalat.", sumber: "HR. Bukhari" },
+            { teks: "Amalan yang paling dicintai Allah adalah yang terus-menerus.", sumber: "HR. Bukhari" },
+            { teks: "Hati adalah segumpal daging, jika baik maka baik seluruh tubuh.", sumber: "HR. Bukhari" },
+            { teks: "Tidak masuk surga orang yang sombong seberat zarrah.", sumber: "HR. Muslim" },
+            { teks: "Allah turun ke langit dunia setiap malam, siapa yang berdoa akan dikabulkan.", sumber: "HR. Bukhari" },
+            { teks: "Perumpamaan orang beriman seperti satu tubuh.", sumber: "HR. Muslim" },
+            { teks: "Barangsiapa shalat Subuh, ia dalam jaminan Allah.", sumber: "HR. Muslim" },
+            { teks: "Doa adalah ibadah.", sumber: "HR. Tirmidzi" },
+            { teks: "Janganlah kamu marah, maka bagimu surga.", sumber: "HR. Tabrani" },
+            { teks: "Malu itu tidak mendatangkan kecuali kebaikan.", sumber: "HR. Bukhari" },
+            { teks: "Orang paling sempurna imannya adalah yang terbaik akhlaknya.", sumber: "HR. Tirmidzi" },
+            { teks: "Sebaik-baik kalian yang belajar Al-Qur'an dan mengajarkannya.", sumber: "HR. Bukhari" },
+            { teks: "Bacalah Al-Qur'an, ia akan memberi syafaat di hari kiamat.", sumber: "HR. Muslim" },
+            { teks: "Sebaik-baik hari adalah hari Jumat.", sumber: "HR. Muslim" },
+            { teks: "Sedekah menghapus dosa seperti air memadamkan api.", sumber: "HR. Tirmidzi" },
+            { teks: "Tangan di atas lebih baik dari tangan di bawah.", sumber: "HR. Bukhari" },
+            { teks: "Jauhilah hasud, karena ia memakan kebaikan seperti api memakan kayu.", sumber: "HR. Abu Daud" }
+        ];
+
+        // DATABASE DOA (10 doa)
+        const doa = [
+            { teks: "اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْمًا نَافِعًا", arti: "Ya Allah, aku memohon ilmu yang bermanfaat", sumber: "Doa Harian" },
+            { teks: "رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً", arti: "Ya Tuhan, beri kami kebaikan di dunia", sumber: "QS. Al-Baqarah: 201" },
+            { teks: "رَبِّ زِدْنِي عِلْمًا", arti: "Ya Tuhanku, tambahkanlah ilmu", sumber: "QS. Thaha: 114" },
+            { teks: "رَبِّ اشْرَحْ لِي صَدْرِي", arti: "Ya Tuhanku, lapangkanlah dadaku", sumber: "QS. Thaha: 25" },
+            { teks: "حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ", arti: "Cukuplah Allah menjadi penolong", sumber: "QS. Ali Imran: 173" },
+            { teks: "لَا إِلَهَ إِلَّا أَنْتَ سُبْحَانَكَ", arti: "Tidak ada Tuhan selain Engkau", sumber: "Doa Nabi Yunus" },
+            { teks: "اللَّهُمَّ إِنِّي ظَلَمْتُ نَفْسِي", arti: "Ya Allah, aku telah menzalimi diriku", sumber: "HR. Bukhari" },
+            { teks: "رَبَّنَا تَقَبَّلْ مِنَّا", arti: "Ya Tuhan, terimalah amal kami", sumber: "QS. Al-Baqarah: 127" },
+            { teks: "رَبَّنَا اغْفِرْ لَنَا", arti: "Ya Tuhan, ampunilah kami", sumber: "QS. Ali Imran: 147" },
+            { teks: "اللَّهُمَّ أَعِنِّي عَلَى ذِكْرِكَ", arti: "Ya Allah, bantu aku untuk mengingat-Mu", sumber: "HR. Abu Daud" }
+        ];
+
+        // FUNGSI GET HADITS & DOA HARI INI
+        function getTodayItem(array) {
+            const today = new Date();
+            const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
+            return array[dayOfYear % array.length];
+        }
+
+        // AMBIL DATA DARI API
+        async function fetchPrayerTimes() {
+            try {
+                const res = await fetch('https://api.aladhan.com/v1/timings?latitude=-6.2088&longitude=106.8456&method=11');
+                const data = await res.json();
+                if (data.code === 200) {
+                    const t = data.data.timings;
+                    document.getElementById('prayerTimes').innerHTML = `
+                        <div style="display:flex; justify-content:space-between; padding:6px 0;"><span>Subuh</span><span style="color:#e2d5a0;">${t.Fajr}</span></div>
+                        <div style="display:flex; justify-content:space-between; padding:6px 0;"><span>Dzuhur</span><span style="color:#e2d5a0;">${t.Dhuhr}</span></div>
+                        <div style="display:flex; justify-content:space-between; padding:6px 0;"><span>Ashar</span><span style="color:#e2d5a0;">${t.Asr}</span></div>
+                        <div style="display:flex; justify-content:space-between; padding:6px 0;"><span>Maghrib</span><span style="color:#e2d5a0;">${t.Maghrib}</span></div>
+                        <div style="display:flex; justify-content:space-between; padding:6px 0;"><span>Isya</span><span style="color:#e2d5a0;">${t.Isha}</span></div>
+                    `;
+                    const hijri = data.data.date.hijri;
+                    document.getElementById('hijriDate').innerHTML = `${hijri.day} ${hijri.month.ar} ${hijri.year} H`;
+                    document.getElementById('greetingText').innerHTML = `🕌 ${hijri.day} ${hijri.month.en}`;
+                }
+            } catch (e) {
+                document.getElementById('prayerTimes').innerHTML = '<div style="text-align:center;color:#8f9eb5;">Gagal memuat</div>';
+            }
+        }
+
+        async function fetchAyah() {
+            try {
+                const random = Math.floor(Math.random() * 6236) + 1;
+                const res = await fetch(`https://api.alquran.cloud/v1/ayah/${random}/editions/quran-uthmani,id.indonesian`);
+                const data = await res.json();
+                if (data.code === 200) {
+                    document.getElementById('ayatArabPreview').innerHTML = data.data[0].text;
+                    document.getElementById('ayatArtiPreview').innerHTML = data.data[1].text;
+                    document.getElementById('ayatSumberPreview').innerHTML = `QS. ${data.data[0].surah.name} : ${data.data[0].numberInSurah}`;
+                }
+            } catch (e) {
+                document.getElementById('ayatArabPreview').innerHTML = 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+                document.getElementById('ayatArtiPreview').innerHTML = 'Dengan nama Allah Yang Maha Pengasih';
+            }
+        }
+
+        function updateHaditsDoa() {
+            const h = getTodayItem(hadits);
+            const d = getTodayItem(doa);
+            document.getElementById('hadithText').innerHTML = `"${h.teks}"`;
+            document.getElementById('hadithSource').innerHTML = `— ${h.sumber}`;
+            document.getElementById('doaText').innerHTML = `"${d.teks}"<br><span style="font-size:0.8rem;">${d.arti}</span>`;
+            document.getElementById('doaSource').innerHTML = `— ${d.sumber}`;
+        }
+
+        document.getElementById('openQuranBtn').addEventListener('click', () => window.open('https://quran.com', '_blank'));
+
+        fetchPrayerTimes();
+        fetchAyah();
+        updateHaditsDoa();
+    </script>
+</body>
+</html>
